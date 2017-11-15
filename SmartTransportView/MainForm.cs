@@ -7,14 +7,30 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using SwissTransport;
 
 namespace SmartTransportView
 {
-    public partial class Form1 : Form
+    public partial class MainForm : Form
     {
-        public Form1()
+        Transport t = new Transport();
+        SmartTransportBL st = new SmartTransportBL();
+        public MainForm()
         {
             InitializeComponent();
+        }
+
+        private void btnShowTimeTable_Click(object sender, EventArgs e)
+        {
+            Connections c= t.GetConnections("Sursee", "Luzern");
+            //dgvShowTimeTable.DataSource = t.GetConnections("", "").ConnectionList;
+            dgvShowTimeTable.DataSource = st.GetTimeTableData();
+            dgvShowTimeTable.Columns["StartEndTime"].HeaderText = "Startzeit - Endzeit";
+            dgvShowTimeTable.Columns["StartEndStation"].HeaderText = "Start-Station --> Endstation";
+            dgvShowTimeTable.Columns["Duration"].HeaderText = "Dauer";
+            dgvShowTimeTable.Columns["Rail"].HeaderText = "Gleis";
+            dgvShowTimeTable.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+           
         }
     }
 }

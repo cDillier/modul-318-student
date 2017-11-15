@@ -45,6 +45,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Connections.cs" />
+    <Compile Include="ISmartTransportBL.cs" />
+    <Compile Include="SmartTransportBL.cs" />
     <Compile Include="StationBoardRoot.cs" />
     <Compile Include="Stations.cs" />
     <Compile Include="ITransport.cs" />
