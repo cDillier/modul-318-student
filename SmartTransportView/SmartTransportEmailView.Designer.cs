@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.tbMailBody = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.lblSubject = new System.Windows.Forms.Label();
@@ -38,6 +39,11 @@
             this.tbTo = new System.Windows.Forms.TextBox();
             this.tbFrom = new System.Windows.Forms.TextBox();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.tbUser = new System.Windows.Forms.TextBox();
+            this.lblUser = new System.Windows.Forms.Label();
+            this.lblPassword = new System.Windows.Forms.Label();
+            this.tbPassword = new System.Windows.Forms.TextBox();
+            this.tpMail = new System.Windows.Forms.ToolTip(this.components);
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -53,6 +59,10 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.tbPassword);
+            this.panel1.Controls.Add(this.lblPassword);
+            this.panel1.Controls.Add(this.lblUser);
+            this.panel1.Controls.Add(this.tbUser);
             this.panel1.Controls.Add(this.lblSubject);
             this.panel1.Controls.Add(this.tbSubject);
             this.panel1.Controls.Add(this.btnSend);
@@ -116,6 +126,7 @@
             this.tbTo.Name = "tbTo";
             this.tbTo.Size = new System.Drawing.Size(423, 22);
             this.tbTo.TabIndex = 6;
+            this.tpMail.SetToolTip(this.tbTo, "xxxxxx@outlook.com");
             // 
             // tbFrom
             // 
@@ -123,6 +134,7 @@
             this.tbFrom.Name = "tbFrom";
             this.tbFrom.Size = new System.Drawing.Size(423, 22);
             this.tbFrom.TabIndex = 5;
+            this.tpMail.SetToolTip(this.tbFrom, "xxxxxx@outlook.com");
             // 
             // panel2
             // 
@@ -132,6 +144,38 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1076, 338);
             this.panel2.TabIndex = 6;
+            // 
+            // tbUser
+            // 
+            this.tbUser.Location = new System.Drawing.Point(725, 10);
+            this.tbUser.Name = "tbUser";
+            this.tbUser.Size = new System.Drawing.Size(165, 22);
+            this.tbUser.TabIndex = 12;
+            // 
+            // lblUser
+            // 
+            this.lblUser.AutoSize = true;
+            this.lblUser.Location = new System.Drawing.Point(619, 13);
+            this.lblUser.Name = "lblUser";
+            this.lblUser.Size = new System.Drawing.Size(100, 17);
+            this.lblUser.TabIndex = 13;
+            this.lblUser.Text = "Benutzername";
+            // 
+            // lblPassword
+            // 
+            this.lblPassword.AutoSize = true;
+            this.lblPassword.Location = new System.Drawing.Point(619, 38);
+            this.lblPassword.Name = "lblPassword";
+            this.lblPassword.Size = new System.Drawing.Size(65, 17);
+            this.lblPassword.TabIndex = 14;
+            this.lblPassword.Text = "Passwort";
+            // 
+            // tbPassword
+            // 
+            this.tbPassword.Location = new System.Drawing.Point(725, 38);
+            this.tbPassword.Name = "tbPassword";
+            this.tbPassword.Size = new System.Drawing.Size(165, 22);
+            this.tbPassword.TabIndex = 15;
             // 
             // SmartTransportEmailView
             // 
@@ -162,5 +206,10 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label lblSubject;
         private System.Windows.Forms.TextBox tbSubject;
+        private System.Windows.Forms.TextBox tbPassword;
+        private System.Windows.Forms.Label lblPassword;
+        private System.Windows.Forms.Label lblUser;
+        private System.Windows.Forms.TextBox tbUser;
+        private System.Windows.Forms.ToolTip tpMail;
     }
 }

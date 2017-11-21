@@ -57,7 +57,7 @@ namespace SmartTransportView
             gmcMap.Position = new PointLatLng(47.170785, 8.09788);
             gmcMap.MinZoom = 0;
             gmcMap.MaxZoom = 24;
-            gmcMap.Zoom = 9;
+            gmcMap.Zoom = 18;
             gmcMap.AutoScroll = true;
         }
         private void btnShowTimeTable_Click(object sender, EventArgs e)
@@ -72,10 +72,16 @@ namespace SmartTransportView
                 object x = selectedRow.Cells["XCoordination"].Value;
                 object y = selectedRow.Cells["YCoordination"].Value;
                 gmcMap.Position = new PointLatLng(Convert.ToDouble(x), Convert.ToDouble(y));
+                btnMail.Visible = true;
+                btnGMap.Visible = true;
+                btnSateliteMap.Visible = true;
+                btnGoogleMap.Visible = true;
             }
             else
             {
-                MessageBox.Show("Es wurde ein unbekannter Ort, oder falsches Datum eingegeben");
+                MessageBox.Show("Es wurde keine Daten gefunden");
+                btnMail.Visible = false;
+                
             }
         }
 

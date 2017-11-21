@@ -36,9 +36,17 @@ namespace SmartTransportView
         private void btnSend_Click(object sender, EventArgs e)
         {
             MailMessage email = new MailMessage(tbFrom.Text, tbTo.Text, tbSubject.Text, tbMailBody.Text);
-            SmtpClient mailClient = new SmtpClient("smtp.gmail.com", 589);//("smtp.office365.com", 587);
-                                                                          //System.Net.NetworkCredential credentials = new System.Net.NetworkCredential("")
-            mailClient.Send(email);
+            try
+            {
+                SmtpClient mailClient = new SmtpClient("smtp.office365.com", 587);
+                mailClient.Send(email);
+            }
+            catch (Exception)
+            {
+
+                MessageBox.Show("EMail konnte nicht versendet werden\n (Es ist nur eine Outlook-Email möglich)");
+            }
+
         }
     }
 }

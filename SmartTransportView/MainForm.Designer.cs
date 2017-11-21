@@ -46,6 +46,7 @@
             this.btnGMap = new System.Windows.Forms.ToolStripButton();
             this.btnSateliteMap = new System.Windows.Forms.ToolStripButton();
             this.btnGoogleMap = new System.Windows.Forms.ToolStripButton();
+            this.btnMail = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.spSmartTransport)).BeginInit();
             this.spSmartTransport.Panel1.SuspendLayout();
@@ -80,6 +81,7 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.btnMail);
             this.panel1.Controls.Add(this.dtpStartTime);
             this.panel1.Controls.Add(this.btnShowTimeTable);
             this.panel1.Controls.Add(this.lblDepartureTime);
@@ -256,6 +258,7 @@
             this.btnGMap.TextDirection = System.Windows.Forms.ToolStripTextDirection.Vertical90;
             this.btnGMap.ToolTipText = "Geben Sie eine Startstation und eine \r\nEndstation ein und drücken\r\nSie anschliess" +
     "end Enter";
+            this.btnGMap.Visible = false;
             this.btnGMap.Click += new System.EventHandler(this.btnGMap_Click);
             // 
             // btnSateliteMap
@@ -266,6 +269,7 @@
             this.btnSateliteMap.Name = "btnSateliteMap";
             this.btnSateliteMap.Size = new System.Drawing.Size(37, 24);
             this.btnSateliteMap.Text = "Satellit";
+            this.btnSateliteMap.Visible = false;
             this.btnSateliteMap.Click += new System.EventHandler(this.btnSateliteMap_Click);
             // 
             // btnGoogleMap
@@ -276,7 +280,20 @@
             this.btnGoogleMap.Name = "btnGoogleMap";
             this.btnGoogleMap.Size = new System.Drawing.Size(37, 24);
             this.btnGoogleMap.Text = "Standart";
+            this.btnGoogleMap.Visible = false;
             this.btnGoogleMap.Click += new System.EventHandler(this.btnGoogleMap_Click);
+            // 
+            // btnMail
+            // 
+            this.btnMail.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnMail.Location = new System.Drawing.Point(70, 162);
+            this.btnMail.Name = "btnMail";
+            this.btnMail.Size = new System.Drawing.Size(516, 34);
+            this.btnMail.TabIndex = 5;
+            this.btnMail.Text = "Mail versenden";
+            this.btnMail.UseVisualStyleBackColor = true;
+            this.btnMail.Visible = false;
+            this.btnMail.Click += new System.EventHandler(this.btnMail_Click);
             // 
             // MainForm
             // 
@@ -323,6 +340,7 @@
         private System.Windows.Forms.ToolStripButton btnGMap;
         private System.Windows.Forms.ToolStripButton btnSateliteMap;
         private System.Windows.Forms.ToolStripButton btnGoogleMap;
+        private System.Windows.Forms.Button btnMail;
     }
 }
 
