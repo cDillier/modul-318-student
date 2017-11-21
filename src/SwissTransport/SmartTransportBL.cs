@@ -10,25 +10,43 @@ namespace SwissTransport
     public class SmartTransportBL
     {
         Transport t = new Transport();
-        public List<ISmartTransportBL>GetTimeTableData()
+        public List<ISmartTransportBL>GetTimeTableData(string fromStation,string toStation,DateTime dateTime)
         {
             List<ISmartTransportBL> timeTable = new List<ISmartTransportBL>();
-            List<Connection> cList = t.GetConnections("Sursee", "Luzern").ConnectionList;
-            foreach (Connection c in cList)
+            foreach (Connection c in t.GetConnections(fromStation, toStation,dateTime.ToString()).ConnectionList)
             {
                 ISmartTransportBL currentData = new ISmartTransportBL();
                 currentData.StartEndStation = c.From.Station.Name + " --> " + c.To.Station.Name;
                 currentData.StartEndTime = GetDateTimeFormat(c.From.Departure,"HH:mm") + " - "+ GetDateTimeFormat(c.To.Arrival, "HH:mm");
                 currentData.Duration = GetTime(c.Duration.Split('d')[1]);
                 currentData.Rail = c.From.Platform;
+                currentData.XCoordination = c.From.Station.Coordinate.XCoordinate;
+                currentData.YCoordination = c.From.Station.Coordinate.YCoordinate;
                 timeTable.Add(currentData);
             }
             return timeTable;
         }
 
-        public void GetAllStations()
+        public List<ISmartTransportBL> GetStationBoard(string station)
         {
-            t.GetStations("s");
+            List<Station> stationList = t.GetStations(station).StationList;
+            List<ISmartTransportBL> stationTable = new List<ISmartTransportBL>();
+            if (stationList.Count != 0)
+            {
+                
+                string id = stationList.Find(x => x != null && x.Name == station).Id;
+                var test = t.GetStationBoard(station, id);
+                foreach (var sb in t.GetStationBoard(station, id).Entries)
+                {
+                    ISmartTransportBL currentData = new ISmartTransportBL();
+                    currentData.StartEndStation =station + " --> " + sb.Name;
+                    currentData.StartEndTime = sb.Stop.Departure.ToString("HH:mm");
+                    currentData.Rail = sb.Name;
+                    stationTable.Add(currentData);
+                }
+                return stationTable;
+            }
+            return new List<ISmartTransportBL>();
         }
 
         #region Private Methode
@@ -60,6 +78,7 @@ namespace SwissTransport
             if (parsedDate.Minute != 0) result += " "+ parsedDate.Minute + " min";
             return result;
         }
+
         #endregion
     }
 }
