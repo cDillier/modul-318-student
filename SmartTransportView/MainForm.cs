@@ -34,7 +34,7 @@ namespace SmartTransportView
         double longitude = 0;
         int lastStartStationLen = 0;
         int lastEndStationLen = 0;
-        public MainForm()
+        private MainForm()
         {
             InitializeComponent();
             SetStationBoardVisibility();
@@ -80,6 +80,10 @@ namespace SmartTransportView
                 object y = selectedRow.Cells["YCoordination"].Value;
                 gmcMap.Position = new PointLatLng(Convert.ToDouble(x), Convert.ToDouble(y));
             }
+            else
+            {
+                MessageBox.Show("Es wurde ein unbekannter Ort, oder falsches Datum eingegeben");
+            }
         }
 
         private void SetDefaultDataGridView(DataGridView dgv)
@@ -101,7 +105,8 @@ namespace SmartTransportView
         private void cbStartStation_TextChanged(object sender, EventArgs e)
         {
             int len = cbStartStation.Text.Length;
-            if (len - lastStartStationLen <= 1 && len - lastStartStationLen >= -1)
+            int lenDif = len - lastStartStationLen;
+            if (lenDif == 1 || len - lenDif == -1)
             {
                 AutoFillHelper(cbStartStation);
                 AccessControl();
@@ -111,7 +116,9 @@ namespace SmartTransportView
         private void cbEndStation_TextChanged(object sender, EventArgs e)
         {
             int len = cbEndStation.Text.Length;
-            if (len - lastEndStationLen <= 1 && len - lastEndStationLen >= -1)
+            int lenDif = len - lastEndStationLen;
+
+            if (lenDif == 1 || len - lenDif == -1)
             {
                 AutoFillHelper(cbEndStation);
                 AccessControl();
@@ -239,6 +246,11 @@ namespace SmartTransportView
         {
             SmartTransportEmailView mailForm = new SmartTransportEmailView(dgvShowTimeTable);
             mailForm.ShowDialog();
+        }
+
+        private void tsMenu_Click(object sender, EventArgs e)
+        {
+            tsMenu.Focus();
         }
     }
 }

@@ -32,7 +32,6 @@
             this.cbStartStation = new System.Windows.Forms.ComboBox();
             this.cbEndStation = new System.Windows.Forms.ComboBox();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.btnMail = new System.Windows.Forms.Button();
             this.dtpStartTime = new System.Windows.Forms.DateTimePicker();
             this.btnShowTimeTable = new System.Windows.Forms.Button();
             this.lblDepartureTime = new System.Windows.Forms.Label();
@@ -81,7 +80,6 @@
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.btnMail);
             this.panel1.Controls.Add(this.dtpStartTime);
             this.panel1.Controls.Add(this.btnShowTimeTable);
             this.panel1.Controls.Add(this.lblDepartureTime);
@@ -94,17 +92,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1277, 217);
             this.panel1.TabIndex = 3;
-            // 
-            // btnMail
-            // 
-            this.btnMail.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnMail.Location = new System.Drawing.Point(70, 158);
-            this.btnMail.Name = "btnMail";
-            this.btnMail.Size = new System.Drawing.Size(310, 36);
-            this.btnMail.TabIndex = 5;
-            this.btnMail.Text = "Als E-Mail versenden";
-            this.btnMail.UseVisualStyleBackColor = true;
-            this.btnMail.Click += new System.EventHandler(this.btnMail_Click);
             // 
             // dtpStartTime
             // 
@@ -242,6 +229,7 @@
             this.tsMenu.Size = new System.Drawing.Size(40, 690);
             this.tsMenu.TabIndex = 9;
             this.tsMenu.Text = "toolStrip1";
+            this.tsMenu.Click += new System.EventHandler(this.tsMenu_Click);
             // 
             // btnStationBoard
             // 
@@ -253,6 +241,8 @@
             this.btnStationBoard.Size = new System.Drawing.Size(37, 161);
             this.btnStationBoard.Text = "Abfahrtstafel";
             this.btnStationBoard.TextDirection = System.Windows.Forms.ToolStripTextDirection.Vertical90;
+            this.btnStationBoard.ToolTipText = "Geben sie eine Startstation ein \r\nund drücken Sie anschliessend\r\ndie Tabulatortas" +
+    "te";
             this.btnStationBoard.Click += new System.EventHandler(this.btnStationBoard_Click);
             // 
             // btnGMap
@@ -265,22 +255,24 @@
             this.btnGMap.Size = new System.Drawing.Size(37, 77);
             this.btnGMap.Text = "Karte";
             this.btnGMap.TextDirection = System.Windows.Forms.ToolStripTextDirection.Vertical90;
+            this.btnGMap.ToolTipText = "Geben Sie eine Startstation und eine \r\nEndstation ein und drücken\r\nSie anschliess" +
+    "end Enter";
             this.btnGMap.Click += new System.EventHandler(this.btnGMap_Click);
             // 
             // btnSateliteMap
             // 
             this.btnSateliteMap.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.btnSateliteMap.Image = ((System.Drawing.Image)(resources.GetObject("btnSateliteMap.Image")));
+            this.btnSateliteMap.Image = global::SmartTransportView.Properties.Resources.map;
             this.btnSateliteMap.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnSateliteMap.Name = "btnSateliteMap";
             this.btnSateliteMap.Size = new System.Drawing.Size(37, 24);
-            this.btnSateliteMap.Text = "Satelit";
+            this.btnSateliteMap.Text = "Satellit";
             this.btnSateliteMap.Click += new System.EventHandler(this.btnSateliteMap_Click);
             // 
             // btnGoogleMap
             // 
             this.btnGoogleMap.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.btnGoogleMap.Image = ((System.Drawing.Image)(resources.GetObject("btnGoogleMap.Image")));
+            this.btnGoogleMap.Image = global::SmartTransportView.Properties.Resources.map__1_;
             this.btnGoogleMap.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnGoogleMap.Name = "btnGoogleMap";
             this.btnGoogleMap.Size = new System.Drawing.Size(37, 24);
@@ -295,6 +287,7 @@
             this.ClientSize = new System.Drawing.Size(1576, 690);
             this.Controls.Add(this.tsMenu);
             this.Controls.Add(this.spSmartTransport);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "MainForm";
             this.Text = "Smart Transport";
             this.panel1.ResumeLayout(false);
@@ -331,7 +324,6 @@
         private System.Windows.Forms.ToolStripButton btnGMap;
         private System.Windows.Forms.ToolStripButton btnSateliteMap;
         private System.Windows.Forms.ToolStripButton btnGoogleMap;
-        private System.Windows.Forms.Button btnMail;
     }
 }
 
