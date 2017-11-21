@@ -35,9 +35,9 @@ namespace SmartTransportView
 
         private void btnSend_Click(object sender, EventArgs e)
         {
-            MailMessage email = new MailMessage(tbFrom.Text,tbTo.Text,tbSubject.Text ,tbMailBody.Text);
+            MailMessage email = new MailMessage(tbFrom.Text, tbTo.Text, tbSubject.Text, tbMailBody.Text);
             SmtpClient mailClient = new SmtpClient("smtp.gmail.com", 589);//("smtp.office365.com", 587);
-           //System.Net.NetworkCredential credentials = new System.Net.NetworkCredential("")
+                                                                          //System.Net.NetworkCredential credentials = new System.Net.NetworkCredential("")
             mailClient.Send(email);
         }
     }

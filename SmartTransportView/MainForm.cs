@@ -19,8 +19,6 @@ namespace SmartTransportView
     public partial class MainForm : Form
     {
         //Google Map Quelle: https://youtu.be/_V7CRn47pZk
-        GMarkerGoogle marker;
-        GMapOverlay markerOverlay;
 
         bool mapOptionActiv = false;
         bool stationBoardActiv = false;
@@ -34,7 +32,10 @@ namespace SmartTransportView
         double longitude = 0;
         int lastStartStationLen = 0;
         int lastEndStationLen = 0;
-        private MainForm()
+        /// <summary>
+        /// Main Form Standard-Konstruktor
+        /// </summary>
+        public MainForm()
         {
             InitializeComponent();
             SetStationBoardVisibility();
@@ -45,15 +46,7 @@ namespace SmartTransportView
             SetDefaultDataGridView(dgvShowTimeTable);
             dgvStationBoard.Columns["StartEndTime"].HeaderText = "Abfahrtszeit";
             GeoCoordinateWatcher watcher = new GeoCoordinateWatcher();
-            watcher.PositionChanged += watcher_PositionChanged;
-            watcher.Start();
             spSmartTransport.SplitterDistance = 850;
-        }
-
-        private void watcher_PositionChanged(object sender, GeoPositionChangedEventArgs<GeoCoordinate> e)
-        {
-            latitude = e.Position.Location.Latitude;
-            longitude = e.Position.Location.Longitude;
         }
 
         private void SetGoogleMapDefault()
@@ -135,7 +128,6 @@ namespace SmartTransportView
         private void AutoFillHelper(ComboBox cb)
         {
             stationList = new List<string>(t.GetStationsString(cb.Text));
-            //stationList.Sort();
             cb.Items.Clear();
             cb.Items.AddRange(stationList.ToArray());
             int textLenght = cb.Text.Length;
@@ -190,7 +182,6 @@ namespace SmartTransportView
 
             SetStationBoardVisibility();
             SetMenuOptionVisibility(false);
-            //stationBoardActiv = true;
             mapOptionActiv = false;
         }
 
@@ -225,11 +216,6 @@ namespace SmartTransportView
 
             SetMenuOptionVisibility(true);
             stationBoardActiv = false;
-        }
-
-        private void dgvShowTimeTable_SelectionChanged(object sender, EventArgs e)
-        {
-
         }
 
         private void btnSateliteMap_Click(object sender, EventArgs e)

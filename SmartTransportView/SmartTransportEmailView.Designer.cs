@@ -30,14 +30,14 @@
         {
             this.tbMailBody = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.lblSubject = new System.Windows.Forms.Label();
+            this.tbSubject = new System.Windows.Forms.TextBox();
             this.btnSend = new System.Windows.Forms.Button();
             this.lblTo = new System.Windows.Forms.Label();
             this.lblFrom = new System.Windows.Forms.Label();
             this.tbTo = new System.Windows.Forms.TextBox();
             this.tbFrom = new System.Windows.Forms.TextBox();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.tbSubject = new System.Windows.Forms.TextBox();
-            this.lblSubject = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -66,9 +66,25 @@
             this.panel1.Size = new System.Drawing.Size(1076, 100);
             this.panel1.TabIndex = 5;
             // 
+            // lblSubject
+            // 
+            this.lblSubject.AutoSize = true;
+            this.lblSubject.Location = new System.Drawing.Point(12, 75);
+            this.lblSubject.Name = "lblSubject";
+            this.lblSubject.Size = new System.Drawing.Size(50, 17);
+            this.lblSubject.TabIndex = 11;
+            this.lblSubject.Text = "Betreff";
+            // 
+            // tbSubject
+            // 
+            this.tbSubject.Location = new System.Drawing.Point(114, 72);
+            this.tbSubject.Name = "tbSubject";
+            this.tbSubject.Size = new System.Drawing.Size(423, 22);
+            this.tbSubject.TabIndex = 10;
+            // 
             // btnSend
             // 
-            this.btnSend.Location = new System.Drawing.Point(733, 12);
+            this.btnSend.Location = new System.Drawing.Point(896, 10);
             this.btnSend.Name = "btnSend";
             this.btnSend.Size = new System.Drawing.Size(168, 23);
             this.btnSend.TabIndex = 9;
@@ -116,22 +132,6 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1076, 338);
             this.panel2.TabIndex = 6;
-            // 
-            // tbSubject
-            // 
-            this.tbSubject.Location = new System.Drawing.Point(114, 72);
-            this.tbSubject.Name = "tbSubject";
-            this.tbSubject.Size = new System.Drawing.Size(423, 22);
-            this.tbSubject.TabIndex = 10;
-            // 
-            // lblSubject
-            // 
-            this.lblSubject.AutoSize = true;
-            this.lblSubject.Location = new System.Drawing.Point(12, 75);
-            this.lblSubject.Name = "lblSubject";
-            this.lblSubject.Size = new System.Drawing.Size(50, 17);
-            this.lblSubject.TabIndex = 11;
-            this.lblSubject.Text = "Betreff";
             // 
             // SmartTransportEmailView
             // 

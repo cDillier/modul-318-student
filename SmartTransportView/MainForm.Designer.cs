@@ -174,7 +174,6 @@
             this.dgvShowTimeTable.TabIndex = 6;
             this.dgvShowTimeTable.TabStop = false;
             this.dgvShowTimeTable.DataSourceChanged += new System.EventHandler(this.dgvShowTimeTable_DataSourceChanged);
-            this.dgvShowTimeTable.SelectionChanged += new System.EventHandler(this.dgvShowTimeTable_SelectionChanged);
             // 
             // gmcMap
             // 
